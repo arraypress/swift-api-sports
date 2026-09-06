@@ -24,6 +24,7 @@ public enum APISportsError: Error, LocalizedError, Sendable, Equatable {
     /// missing parameter the endpoint requires.
     case unsupported(String)
 
+    /// A one-line reason, for a CLI or a log.
     public var errorDescription: String? {
         switch self {
         case .unauthorized(let detail): return detail

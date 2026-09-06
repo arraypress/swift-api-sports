@@ -13,11 +13,15 @@ import Foundation
 /// alongside it; the unified sports put the same fields at the top level.
 /// Both shapes land here.
 public struct League: Sendable, Codable, Equatable, Identifiable {
+    /// The service's league id.
     public let id: Int
+    /// The competition name — "Premier League".
     public let name: String
     /// `League`, `Cup` — absent on sports that do not distinguish.
     public let type: String?
+    /// A URL to the competition's badge.
     public let logo: String?
+    /// Where it is played.
     public let country: Country?
     /// Seasons the service holds for this competition.
     public let seasons: [Season]

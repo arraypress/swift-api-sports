@@ -25,12 +25,19 @@ public struct Standing: Sendable, Codable, Equatable {
     public let team: Game.Competitor?
     /// The constructor, on a Formula 1 driver ranking.
     public let constructor: Game.Competitor?
+    /// League points.
     public let points: Int?
+    /// Matches played.
     public let played: Int?
+    /// Matches won.
     public let won: Int?
+    /// Matches drawn.
     public let drawn: Int?
+    /// Matches lost.
     public let lost: Int?
+    /// Goals scored.
     public let goalsFor: Int?
+    /// Goals conceded.
     public let goalsAgainst: Int?
     /// Recent results, newest last — `"WWDLW"`.
     public let form: String?

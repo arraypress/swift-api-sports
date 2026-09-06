@@ -14,9 +14,13 @@ import Foundation
 /// land here rather than in two near-identical types, because every caller
 /// asking "who competes in this?" wants one answer shape.
 public struct Team: Sendable, Codable, Equatable, Identifiable {
+    /// The service's team id.
     public let id: Int
+    /// The club name.
     public let name: String
+    /// A URL to the club's badge.
     public let logo: String?
+    /// Where the club is based.
     public let country: Country?
     /// Year founded, for a club.
     public let founded: Int?

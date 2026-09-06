@@ -24,6 +24,7 @@ import Foundation
 extension Season {
     private enum OutputKeys: String, CodingKey { case label, start, end, isCurrent }
 
+    /// Writes the unified shape, not the per-sport one the service sends.
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: OutputKeys.self)
         try container.encode(label, forKey: .label)
@@ -38,6 +39,7 @@ extension Season {
 extension League {
     private enum OutputKeys: String, CodingKey { case id, name, type, logo, country, seasons }
 
+    /// Writes the unified shape, not the per-sport one the service sends.
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: OutputKeys.self)
         try container.encode(id, forKey: .id)
@@ -56,6 +58,7 @@ extension Team {
         case id, name, logo, country, founded, isNational, nickname, record
     }
 
+    /// Writes the unified shape, not the per-sport one the service sends.
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: OutputKeys.self)
         try container.encode(id, forKey: .id)
@@ -74,6 +77,7 @@ extension Team {
 extension Game.Status {
     private enum OutputKeys: String, CodingKey { case long, short, elapsed }
 
+    /// Writes the unified shape, not the per-sport one the service sends.
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: OutputKeys.self)
         try container.encodeIfPresent(long, forKey: .long)
@@ -85,6 +89,7 @@ extension Game.Status {
 extension Game.Competitor {
     private enum OutputKeys: String, CodingKey { case id, name, logo, winner }
 
+    /// Writes the unified shape, not the per-sport one the service sends.
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: OutputKeys.self)
         try container.encodeIfPresent(id, forKey: .id)
@@ -99,6 +104,7 @@ extension Game {
         case id, date, status, league, home, away, homeScore, awayScore, title, stage, venue
     }
 
+    /// Writes the unified shape, not the per-sport one the service sends.
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: OutputKeys.self)
         try container.encode(id, forKey: .id)
@@ -123,6 +129,7 @@ extension Standing {
         case goalsFor, goalsAgainst, goalDifference, form, group, note
     }
 
+    /// Writes the unified shape, not the per-sport one the service sends.
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: OutputKeys.self)
         try container.encodeIfPresent(rank, forKey: .rank)

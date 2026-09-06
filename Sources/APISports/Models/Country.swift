@@ -11,6 +11,7 @@ import Foundation
 public struct Country: Sendable, Codable, Equatable {
     /// Numeric id on the unified sports; football identifies countries by name.
     public let id: Int?
+    /// The country name as the service spells it.
     public let name: String
     /// ISO-ish code — `GB`, `US`. Absent for supranational competitions.
     public let code: String?

@@ -27,9 +27,11 @@ import Foundation
 /// A match, race or fight.
 public struct Game: Sendable, Codable, Equatable, Identifiable {
 
+    /// The event id, unique within its sport.
     public let id: Int
     /// Kick-off, in UTC.
     public let date: Date?
+    /// Whether it is scheduled, live or finished.
     public let status: Status
     /// The competition this belongs to.
     public let league: Reference?
@@ -37,13 +39,16 @@ public struct Game: Sendable, Codable, Equatable, Identifiable {
     public let home: Competitor?
     /// The away side, the second fighter — absent for a race.
     public let away: Competitor?
+    /// The home side's score — absent before kick-off, and for a race.
     public let homeScore: Int?
+    /// The away side's score — absent before kick-off, and for a race.
     public let awayScore: Int?
     /// What to call the event when there are no opponents: the Grand Prix
     /// name for a race, the weight category for a fight.
     public let title: String?
     /// Round, week or stage, as the sport names it.
     public let stage: String?
+    /// Where it is played.
     public let venue: String?
 
     // MARK: - Nested
@@ -99,7 +104,9 @@ public struct Game: Sendable, Codable, Equatable, Identifiable {
 
     /// A named thing the service points at — a league, a competition.
     public struct Reference: Sendable, Codable, Equatable {
+        /// The id the service uses for it.
         public let id: Int?
+        /// What it is called.
         public let name: String?
         /// The season label, as the sport spells it.
         public let season: String?
@@ -125,8 +132,11 @@ public struct Game: Sendable, Codable, Equatable, Identifiable {
 
     /// One side of a match.
     public struct Competitor: Sendable, Codable, Equatable {
+        /// The id the service uses for this competitor.
         public let id: Int?
+        /// The team or fighter name.
         public let name: String?
+        /// A URL to their badge or portrait.
         public let logo: String?
         /// Whether this side won, where the service says so directly.
         public let winner: Bool?
